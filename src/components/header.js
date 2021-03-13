@@ -55,7 +55,7 @@ class Header extends Component {
           <div className="form-group my-3 col-md-3">
               <label htmlFor="search_by_name">Search Cocktail By Name</label>
               <input type="text" id="search_by_name" className="form-control" placeholder="Search by cock-tail name" onChange={this.handleChange} />
-              <button className="rounded shadow btn btn-secondary" onClick={() => {this.getCockTailData(searchText)}}>
+              <button className="rounded shadow btn btn-secondary mt-3" onClick={() => {this.getCockTailData(searchText)}}>
               Search Cocktail By Name
           </button>
          </div>
@@ -63,14 +63,15 @@ class Header extends Component {
 
           <div className="form-group my-3 col-md-3">
             <label htmlFor="search_by_category">Search Cocktail By Category</label>
-            <select id="search_by_category" className="form-control" onChange={this.handleChangeCategory}>
+            <select id="search_by_category" defaultValue="Choose1" className="form-control" onChange={this.handleChangeCategory}>
+            <option value="Choose1" disabled>Select one of the following...</option>
               {categories.map((item, index) => (
                 <option key={index} value={item.strCategory}>
                   {item.strCategory}
                 </option>
               ))}
             </select>
-            <button className="rounded shadow btn btn-secondary" onClick={() => {this.props.filterByCategory(selectedCategory)}}>
+            <button className="rounded shadow btn btn-secondary mt-3" onClick={() => {this.props.filterByCategory(selectedCategory)}}>
               Search Cocktail By Category
           </button>
           </div>
@@ -78,14 +79,15 @@ class Header extends Component {
 
           <div className="form-group my-3 col-md-3">
             <label htmlFor="search_by_glasses">Search Cocktail By Glasses</label>
-            <select id="search_by_glasses" className="form-control" onChange={this.handleChangeGlass}>
+            <select id="search_by_glasses" defaultValue="Choose2" className="form-control" onChange={this.handleChangeGlass}>
+            <option value="Choose2" disabled>Select one of the following...</option>
               {glasses.map((item, index) => (
                 <option key={index} value={item.strGlass}>
                   {item.strGlass}
                 </option>
               ))}
             </select>
-            <button className="rounded shadow btn btn-secondary" onClick={() => {this.props.filterByGlass(selectedGlass)}}>
+            <button className="rounded shadow btn btn-secondary mt-3" onClick={() => {this.props.filterByGlass(selectedGlass)}}>
               Search Cocktail By Glasses
           </button>
           </div>
@@ -93,21 +95,22 @@ class Header extends Component {
 
           <div className="form-group my-3 col-md-3">
             <label htmlFor="search_by_ingredients">Search Cocktail By Ingredients</label>
-            <select id="search_by_ingredients" className="form-control" onChange={this.handleChangeIngredient}>
+            <select id="search_by_ingredients" defaultValue="Choose3" className="form-control" onChange={this.handleChangeIngredient}>
+            <option value="Choose3" disabled>Select one of the following...</option>
               {ingredients.map((item, index) => (
                 <option key={index} value={item.strIngredient1}>
                   {item.strIngredient1}
                 </option>
               ))}
             </select>
-            <button className="rounded shadow btn btn-secondary" onClick={() => {this.props.filterByIngredient(selectedIngredient)}}>
+            <button className="rounded shadow btn btn-secondary mt-3" onClick={() => {this.props.filterByIngredient(selectedIngredient)}}>
               Search Cocktail By Ingredients
           </button>
-          <button className="rounded shadow btn btn-warning ml-2" onClick={() => {this.clearSearchInput()}}>
+          
+          </div>
+          <button className="ml-auto rounded shadow btn btn-warning ml-2" onClick={() => {this.clearSearchInput()}}>
               Clear Search Results
           </button>
-          </div>
-          
        </div></div>
       </Fragment>
     );
